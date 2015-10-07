@@ -3,6 +3,7 @@ package com.github.rodrigohenriques.sample.application.ui.activities;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,6 +28,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.Bind;
+import butterknife.BindColor;
 import butterknife.ButterKnife;
 import roboguice.activity.RoboActionBarActivity;
 
@@ -45,12 +47,16 @@ public class SeasonActivity extends RoboActionBarActivity implements EpisodesRec
 
     @Bind(R.id.toolbar) Toolbar toolbar;
 
+    @Bind(R.id.toolbar_layout) CollapsingToolbarLayout collapsingToolbarLayout;
+
     @Bind(R.id.season_logo) ImageView imageViewLogo;
     @Bind(R.id.season_header) ImageView imageViewHeader;
     @Bind(R.id.season_rating) TextView textViewRating;
 
     @Bind(R.id.recyclerview) RecyclerView recyclerView;
 
+    @BindColor(android.R.color.transparent) int colorTransparent;
+    @BindColor(R.color.title_color) int colorTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +65,12 @@ public class SeasonActivity extends RoboActionBarActivity implements EpisodesRec
 
         ButterKnife.bind(this);
 
+        collapsingToolbarLayout.setTitle("Season 1");
+        collapsingToolbarLayout.setCollapsedTitleTextColor(colorTitle);
+        collapsingToolbarLayout.setExpandedTitleColor(colorTransparent);
+
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
-
-        toolbar.setTitle("Season 1");
     }
 
     @Override

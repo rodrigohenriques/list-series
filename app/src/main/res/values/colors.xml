@@ -17,4 +17,5 @@
     <color name="flat_normal_text">@color/secondary_text</color>
 
     <color name="episode_number">#FFFFFF</color>
+    <color name="title_color">#FFFFFF</color>
 </resources>
