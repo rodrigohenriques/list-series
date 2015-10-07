@@ -13,6 +13,9 @@ import com.github.rodrigohenriques.sample.domain.model.Episode;
 
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 
 public class EpisodesRecyclerViewAdapter extends RecyclerView.Adapter<EpisodesRecyclerViewAdapter.ViewHolder> {
 
@@ -30,7 +33,7 @@ public class EpisodesRecyclerViewAdapter extends RecyclerView.Adapter<EpisodesRe
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_2, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.episode_item, parent, false);
         view.setBackgroundResource(typedValue.resourceId);
         return new ViewHolder(view);
     }
@@ -45,7 +48,8 @@ public class EpisodesRecyclerViewAdapter extends RecyclerView.Adapter<EpisodesRe
 
         final Episode episode = episodes.get(position);
 
-        holder.textViewName.setText(episode.getTitle());
+        holder.textViewNumber.setText(episode.getNumberPrettyPrint());
+        holder.textViewTitle.setText(episode.getTitle());
         holder.view.setBackgroundResource(R.drawable.btn_flat_selector);
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,15 +66,14 @@ public class EpisodesRecyclerViewAdapter extends RecyclerView.Adapter<EpisodesRe
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public final View view;
-        public final TextView textViewName;
-        public final TextView textViewDescription;
+        @Bind(R.id.episode_number)TextView textViewNumber;
+        @Bind(R.id.episode_title) TextView textViewTitle;
 
         public ViewHolder(View view) {
             super(view);
             this.view = view;
-            this.textViewName = (TextView) view.findViewById(android.R.id.text1);
-            this.textViewDescription = (TextView) view.findViewById(android.R.id.text2);
-            this.textViewDescription.setTextColor(view.getResources().getColor(R.color.secondary_text));
+
+            ButterKnife.bind(this, view);
         }
     }
 
