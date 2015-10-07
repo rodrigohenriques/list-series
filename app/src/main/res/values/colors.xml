@@ -12,4 +12,7 @@
     <color name="background">#FFFFFF</color>
     <color name="rating_color">#FFFFFF</color>
 
+    <color name="flat_pressed">#66999999</color>
+    <color name="flat_disabled_text">#40000000</color>
+    <color name="flat_normal_text">@color/secondary_text</color>
 </resources>

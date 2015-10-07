@@ -24,7 +24,7 @@ public class ApplicationServiceError {
         return message;
     }
 
-    public Exception getE() {
+    public Exception getException() {
         return e;
     }
 }

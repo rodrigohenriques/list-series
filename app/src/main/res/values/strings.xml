@@ -94,4 +94,5 @@
     </string>
     <string name="episodes">Episódios</string>
     <string name="default_rating">-</string>
+    <string name="action_close">FECHAR</string>
 </resources>
