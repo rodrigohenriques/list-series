@@ -1,9 +1,11 @@
-package com.github.rodrigohenriques.sample;
+package com.github.rodrigohenriques.sample.application.ui.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.github.rodrigohenriques.sample.R;
 
 public class SeasonActivity extends AppCompatActivity {
 
